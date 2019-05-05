@@ -1,0 +1,113 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>CFBundleIdentifier</key>
+	<string></string>
+	<key>Kind</key>
+	<string>Xcode.Xcode3.ProjectTemplateUnitKind</string>
+	<key>Identifier</key>
+	<string>com.useyourloaf.dt.unit.manual.starterApp</string>
+	<key>Ancestors</key>
+	<array>
+		<string>com.apple.dt.unit.cocoaTouchApplicationBase</string>
+		<string>com.apple.dt.unit.coreDataCocoaTouchApplication</string>
+	</array>
+	<key>Concrete</key>
+	<true/>
+	<key>Description</key>
+	<string>No Storyboard single view app </string>
+	<key>SortOrder</key>
+	<integer>1</integer>
+	<key>Options</key>
+	<array>
+		<dict>
+			<key>Identifier</key>
+			<string>rootClassName</string>
+			<key>Required</key>
+			<true/>
+			<key>Name</key>
+			<string>Root View Controller Class:</string>
+			<key>Description</key>
+			<string>Class name of root view controller</string>
+			<key>Type</key>
+			<string>text</string>
+			<key>Default</key>
+			<string>RootViewController</string>
+		</dict>
+		<dict>
+			<key>Identifier</key>
+			<string>languageChoice</string>
+			<key>Units</key>
+			<dict>
+				<key>Swift</key>
+				<dict>
+					<key>Nodes</key>
+					<array>
+						<string>___VARIABLE_rootClassName___.swift:comments</string>
+						<string>___VARIABLE_rootClassName___.swift:imports:importCocoa</string>
+						<string>___VARIABLE_rootClassName___.swift:implementation(___FILEBASENAME___: UIViewController)</string>
+						<string>___VARIABLE_rootClassName___.swift:implementation:methods:viewDidLoad(override func viewDidLoad(\))</string>
+						<string>___VARIABLE_rootClassName___.swift:implementation:methods:viewDidLoad:super</string>
+					</array>
+				</dict>
+			</dict>
+		</dict>
+		<dict>
+			<key>Identifier</key>
+			<string>navigationController</string>
+			<key>Name</key>
+			<string>Embed in Navigation Controller</string>
+			<key>Description</key>
+			<string>Is the root view controller embedded in a navigation controller</string>
+			<key>Type</key>
+			<string>checkbox</string>
+			<key>Default</key>
+			<string>true</string>
+			<key>Units</key>
+			<dict>
+				<key>false</key>
+				<array>
+					<dict>
+						<key>RequiredOptions</key>
+						<dict>
+							<key>languageChoice</key>
+							<string>Swift</string>
+						</dict>
+						<key>Definitions</key>
+						<dict>
+							<key>AppDelegate.swift:implementation:methods:applicationdidFinishLaunchingWithOptions:body</key>
+							<string>window = UIWindow(frame: UIScreen.main.bounds)
+window?.backgroundColor = .white
+window?.rootViewController = ___VARIABLE_rootClassName___()
+window?.makeKeyAndVisible()</string>
+						</dict>
+					</dict>
+				</array>
+				<key>true</key>
+				<array>
+					<dict>
+						<key>RequiredOptions</key>
+						<dict>
+							<key>languageChoice</key>
+							<string>Swift</string>
+						</dict>
+						<key>Definitions</key>
+						<dict>
+							<key>AppDelegate.swift:implementation:methods:applicationdidFinishLaunchingWithOptions:body</key>
+							<string>window = UIWindow(frame: UIScreen.main.bounds)
+window?.backgroundColor = .white
+let rootViewController = ___VARIABLE_rootClassName___()
+let navigationController = UINavigationController(rootViewController: rootViewController)
+window?.rootViewController = navigationController
+window?.makeKeyAndVisible()</string>
+						</dict>
+					</dict>
+				</array>
+			</dict>
+		</dict>
+	</array>
+	<key>Definitions</key>
+	<dict/>
+</dict>
+</plist>
